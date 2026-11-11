@@ -30,7 +30,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
 RUN useradd -m -d /home/container -s /bin/bash container
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY obsdnhost-launcher.sh /usr/local/bin/obsdnhost-launcher
+RUN chmod +x /entrypoint.sh /usr/local/bin/obsdnhost-launcher
 
 USER container
 ENV USER=container HOME=/home/container
